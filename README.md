@@ -1,5 +1,12 @@
-# YCNG-229
-## Neural Networks and Deep Learning
+# YCNG-229: Neural Networks and Deep Learning
+
+## :rocket: Assignments
+1. [Build a small Xception network using model subclassing: ](https://github.com/MNLepage08/YCNG-229/blob/main/Small_Xception.ipynb)Collect pets image dataset with prefetching samples memory to maximize GPU utilization. Preprocess with scale and data augmentation. Build small Xception with model subclassing. Evaluate with binary cross-entropy loss fonction. Accuracy: 90%.<p>
+2. [Create an autoencoder with subclassing and customizing fit function for image denoising: ](https://github.com/MNLepage08/YCNG-229/blob/main/Denoising_AutoEncoder.ipynb)Collect data from Fashion MNIST. Pre-process the image with a scale of 0 to 1. Add random Gaussian noise. Build an autoencoder model with binary cross-entropy metric. Valuation with train and test. Loss value of 0.26 after 10 epochs.<p>
+3. [Build CNN model with fit function and custom training loop. Compare with transfer learning and fine-tuning: ](https://github.com/MNLepage08/YCNG-229/blob/main/Assignments_3_MNL.ipynb)Collect flower image data from TensorFlow with prefetching technique. Pre-process with scale and data augmentation. Build CNN model. Customize fit function with sparse categorical by overriding train / test step and custom training loop. Accuracy of 71% (30 epochs)). Applied transfer learning with Xception model (20 epochs) and fine-tuning (10 epochs). Accuracy of 91%.<p>
+4. [Project - Use transformer to automatically classify, extract, and structure the information contained in the document: ](https://github.com/MNLepage08/Project-Report/blob/main/Project%20-%20MNL.pdf)Collection of scanned receipt. Use PaddleOCR model to provide data annotation. Preprocess the dataset for reorganize it before the fine-tuning step with the Hugging Face LayoutLM model. F1-Score of 94%. 
+
+## :mortar_board: Courses
 
 #### 1. Sequential model vs. Functional API
   - [Understanding Sequential vs. Functional API in Keras](https://www.analyticsvidhya.com/blog/2021/07/understanding-sequential-vs-functional-api-in-keras/)
