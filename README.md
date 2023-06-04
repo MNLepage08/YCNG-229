@@ -1,5 +1,8 @@
 # YCNG-229: Neural Networks and Deep Learning
 
+<p align="center">
+<img width="1000" alt="Capture d’écran, le 2023-06-04 à 13 49 19" src="https://github.com/MNLepage08/YCNG-232/assets/113123425/649c81dd-0051-4014-b5e0-f4f0b163b3c3">
+
 ## :rocket: Assignments
 
 1. [Build a small Xception network using model subclassing: ](https://github.com/MNLepage08/YCNG-229/blob/main/Small_Xception.ipynb)Collect pets image dataset with prefetching samples memory to maximize GPU utilization. Preprocess with scale and data augmentation. Build small Xception with model subclassing. Evaluate with binary cross-entropy loss fonction. Accuracy: 90%.<p>
@@ -16,7 +19,7 @@
 | # | Sessions |
 | --- | --- |
 | 1 | Sequential model vs. Functional API |
-| 2 | Custom Layers & Models & Training |  
+| 2 | Custom Layers & Models |  
 | 3 | Custom Callbacks, Distributed Training |
 | 4 | Transfert Learning and Fine-Tuning, Visual Similarity Search at Scale |
 | 5 | Siamese Neural Networks |
@@ -42,4 +45,20 @@
 * [Transfert Learning: ](https://pyimagesearch.com/2019/05/20/transfer-learning-with-keras-and-deep-learning/) Consists of freezing the bottom layers in a model and only training the top layers. Blueprint 1: stacking a pre-trained model and some freshly initialized classification layers. Blueprint 2: freezing all layers except the last one
 * [Functional API: ](https://keras.io/guides/functional_api/)More flexible than the sequential. Can handle models with non-linear topology, shared layers, and even multiple inputs or outputs, Directed Acyclic Graph (DAG) of layers. Model can be nested: a model can contain sub-models (since a model is just like a layer). Models with multiple inputs and outputs. (we need concatenation).
 
+</details>
+  
+<details close>
+<summary>2. Custom Layers & Models</summary>
+  
+* [Dense Layer: ]([https://keras.io/guides/making_new_layers_and_models_via_subclassing/](https://machinelearningknowledge.ai/keras-dense-layer-explained-for-beginners/))Lambda layers are simple layers in TensorFlow that can be used to create some custom activation functions. But lambda layers have many limitations, especially when it comes to training these layers. So, the idea is to create custom layers that are trainable, using the inheritable Keras layers in TensorFlow — with a special focus on Dense layers.
+* <img width="340" align="right" alt="Capture d’écran, le 2023-06-04 à 14 27 16" src="https://github.com/MNLepage08/MNLepage08/assets/113123425/86450498-ba6a-4611-9942-0d3bf668a594">[A layer is a class](https://towardsdatascience.com/creating-and-training-custom-layers-in-tensorflow-2-6382292f48c2) that receives some parameters, passes them through state and computations, and passes out an output, as required by the neural network (Y = (w*X+c)). Every model architecture contains multiple layers, be it a Sequential or a Functional API. <p>**Use case as example:** You want to develop a machine translation (LSTM seq to seq), we need to use a mechanism which called attention (ex: we might pay attention to understand some particulars caps in the phrase to understand the context). No attention layer in keras and needs custom layer.
+* [Custom Layers: ](https://keras.io/guides/making_new_layers_and_models_via_subclassing/)The most recommended way to create your own customized layer is extending the tf.keras.Layer and implement: **Init:** specifies all input-independent initialization (ex:  number of units in my dense layer). **Call:** specifies the computation done buy the layer (Y = (w*X+c)). **Build:** creates the weights (states) of the layer (this is just a style convention since you can create weights in init as well).
+* The Layer class: the combination of state (weights) and some computation. Layers can have non-trainable weights. Best practice: deferring weight creation until the shape of the inputs is known. Layers are recursively composable. The add_loss() method. You can optionally enable serialization on your layers. Privileged training argument in the call() method.
+* Layer class: to define inner computation blocks. Model class: to define the object that we will train. (model class is compose of layer class).
+* Example: In a ResNet50 model, we would have several ResNet blocks subclassing Layer, and a single Model encompassing the entire ResNet50 network. The model class has the same API as Layer, with the following differences: It exposes built-in training, evaluation, and prediction loops (model.fit(), model.evaluate(), model.predict()) It exposes the list of its inner layers, via the model.layers property. It exposes saving and serialization APIs.
+* [Introduction aux encodeurs automatiques](https://www.tensorflow.org/tutorials/generative/autoencoder?hl=fr#define_a_convolutional_autoencoder)
+* [Convolutional autoencoder for image denoising](https://keras.io/examples/vision/autoencoder/)
+* [Transformer Library (NLP, Computer Vision, Tool Pipeline)](https://huggingface.co/)
+
+  
 </details>
