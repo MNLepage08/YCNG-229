@@ -19,8 +19,8 @@
 | # | Sessions |
 | --- | --- |
 | 1 | Sequential model vs. Functional API |
-| 2 | Custom Layers & Models |  
-| 3 | Custom Callbacks, Distributed Training |
+| 2 | Custom Layers & Models, Autoencoder |  
+| 3 | GANs and Data input pipelines |
 | 4 | Transfert Learning and Fine-Tuning, Visual Similarity Search at Scale |
 | 5 | Siamese Neural Networks |
 | 6 | Semantic Similarity Classification with BERT |
@@ -48,7 +48,7 @@
 </details>
   
 <details close>
-<summary>2. Custom Layers & Models</summary>
+<summary>2. Custom Layers & Models, Autoencoder</summary>
   
 * [Dense Layer: ]([https://keras.io/guides/making_new_layers_and_models_via_subclassing/](https://machinelearningknowledge.ai/keras-dense-layer-explained-for-beginners/))Lambda layers are simple layers in TensorFlow that can be used to create some custom activation functions. But lambda layers have many limitations, especially when it comes to training these layers. So, the idea is to create custom layers that are trainable, using the inheritable Keras layers in TensorFlow — with a special focus on Dense layers.
 * <img width="340" align="right" alt="Capture d’écran, le 2023-06-04 à 14 27 16" src="https://github.com/MNLepage08/MNLepage08/assets/113123425/86450498-ba6a-4611-9942-0d3bf668a594">[A layer is a class](https://towardsdatascience.com/creating-and-training-custom-layers-in-tensorflow-2-6382292f48c2) that receives some parameters, passes them through state and computations, and passes out an output, as required by the neural network (Y = (w*X+c)). Every model architecture contains multiple layers, be it a Sequential or a Functional API. <p>**Use case as example:** You want to develop a machine translation (LSTM seq to seq), we need to use a mechanism which called attention (ex: we might pay attention to understand some particulars caps in the phrase to understand the context). No attention layer in keras and needs custom layer.
@@ -59,6 +59,29 @@
 * [Introduction aux encodeurs automatiques](https://www.tensorflow.org/tutorials/generative/autoencoder?hl=fr#define_a_convolutional_autoencoder)
 * [Convolutional autoencoder for image denoising](https://keras.io/examples/vision/autoencoder/)
 * [Transformer Library (NLP, Computer Vision, Tool Pipeline)](https://huggingface.co/)
+ 
+</details>
+  
+<details close>
+<summary>3. GANs and Data input pipelines</summary>
 
+* [GANs with Keras and TensorFlow: ](https://pyimagesearch.com/2020/11/16/gans-with-keras-and-tensorflow/)In GANs, two models are trained simultaneously (adversarial process): **Generator:** learns to create images that look real (the artist). **Discriminator:** learns to tell real images apart from fakes (the art critic)
+* <img width="306" align="right" alt="Capture d’écran, le 2023-06-04 à 16 28 42" src="https://github.com/MNLepage08/YCNG-229/assets/113123425/cf148f94-e254-4e2e-ac8e-81c0548720ab">GANs are usually trained using the following steps.<p>At first the generator is doing a poor job though it progressively becomes better at creating images that look real, while the discriminator becomes better at telling them apart. It reaches to the point where the discriminator is no longer able to spot the difference between the images.
+* [Generative Adversarial Networks:](https://arxiv.org/abs/1406.2661)
+* [How to Develop a GAN for Generating MNIST Handwritten Digits:](https://machinelearningmastery.com/how-to-develop-a-generative-adversarial-network-for-an-mnist-handwritten-digits-from-scratch-in-keras/)
+* [Generative Adversarial Network (GAN) using Keras](https://medium.datadriveninvestor.com/generative-adversarial-network-gan-using-keras-ce1c05cfdfd3)
+* [Data input pipelines: ](https://www.tensorflow.org/guide/data?hl=fr#using_tfdata_with_tfkeras)The tf.data API enables us to build complex input pipelines from simple, reusable pieces. **Example 1. Image model:** aggregate data from files in a distributed file system, apply random perturbations to each image, merge randomly selected images into a batch for training. **Example 2. Text model:** extracting symbols from raw text data, converting them to embedding identifiers with a lookup table, batching together sequences of different lengths.
+* The tf.data API makes it possible to handle large amounts of data, read from different data formats, and perform complex transformations. The tf.data API introduces a tf.data.Dataset abstraction representing a sequence of elements, in which each element consists of one or more components. **Example:** In an image pipeline, an element might be a single training example, with a pair of tensor components representing the image and its label.
+* There are two distinct ways to create a dataset: A data source constructs a Dataset from data stored in memory or in one or more files. A data transformation constructs a dataset from one or more tf.data.Dataset objects.
+* Once you have a Dataset object, you can transform it into a new Dataset by chaining method calls on the tf.data.Dataset object. **Example:**  Apply per-element transformations such as Dataset.map. Apply multi-element transformations such as Dataset.batch.
+* **Reading input data:** NumPy arrays, Python generators, TFRecord Data, Text Data, CSV Data, Set of files.
+* **Batching dataset elements:** equivalent to update the weights or the gradients. Pass the entire dataset.
+* **Processing multiple epochs:** The simple way to iterate over a dataset un multiple epochs is to use the Dataset.repeat() transformation. Dataset.batch applied after Dataset.repeat will yield batches that straddle epoch boundaries.
+* **Randomly shuffling input data:** The Dataset.shuffle() transformation maintains a fixed-size buffer and choses the next element uniformly at random from that buffer.
+* **Preprocessing data:** When training a neural network on real-world image data, it is often necessary to convert images of different sizes to a common size, so they may be batched into a fixed size. Dataset.cache: keep the data in memory after they’re loaded off disk during the first epoch. This will ensure the dataset does not become a bottleneck while training your model. If your dataset is too large to fit into memory, you can also use this method to create a performant on-disk cache. Dataset.prefetch: overlaps data preprocessing and model execution while training. Tf.data.AUTOTUNE, the best value of buffer size for you. Train_flag = false, don’t need shuffle the validation set.
+
+
+* [Classement des images :](https://www.tensorflow.org/tutorials/images/classification?hl=fr)
+* [Simple MNIST convnet :](https://keras.io/examples/vision/mnist_convnet/)
   
 </details>
