@@ -22,12 +22,12 @@
 | 2 | Custom Layers & Models, Autoencoder |  
 | 3 | GANs and Data input pipelines |
 | 4 | Preprocessing |
-| 5 | Custom Fit Function & DCGAN |
-| 6 | Semantic Similarity Classification with BERT |
-| 7 | Multi-Label Text Classification with Hugging Face |
-| 8 | Unsupervised Deep Embedding for Clustering Analysis |
-| 9 | Hyperparameter Tuning with KerasTurner |
-| 10 | Semantic Similarity Analysis as Scale |
+| 5 | Custom Fit Function, DCGAN |
+| 6 | Custom Training Loop, Tuning the custom training loop |
+| 7 | Transfer Learning and Fine Tuning |
+| 8 | Multi-Label Text Classification with Hugging Face |
+| 9 | Semantic Similarity Classification with BERT |
+| 10 | Siamese Neural Network |
 | 11 | Zero-Shot Text Classification with Hugging Face |
 | 12 | Projects Presentation |
 
@@ -134,7 +134,7 @@
   
   
 <details close>
-<summary>5. Custom Fit Function & DCGAN<p></summary>
+<summary>5. Custom Fit Function, DCGAN<p></summary>
 
 * [Customize fit(): ](https://keras.io/guides/customizing_what_happens_in_fit/)We should override the training_step function of the model class. This is the function that is called by fit() for every batch of data. We. Will then be able to call fit() as usual and it will be running our own learning algorithm.<p>
 
@@ -152,4 +152,30 @@
 
 * [DCGAN to generate face images](https://keras.io/examples/generative/dcgan_overriding_train_step/)
 
+</details>
+  
+  
+<details close>
+<summary>6. Custom Training Loop, Tuning the custom training loop<p></summary>
+  
+* [Getting started with KerasTurner: ](https://keras.io/guides/keras_tuner/getting_started/#keep-keras-code-separate)Define sesarch space ([Optuna: ](https://optuna.org)An open source hyperparameter optimization framework to automate hyperparameter search.), Search start (RandomSearch, BayesOptimization, Hyperband, SklearnTuner), Query results, Retrain model.<p>
+  
+* **Tune model training:** **Build:** creates a keras model using the hyperparameters and returns it. **Fit:** accepts the model returned by HyperModel.build(), hp and all the arguments passed to search().<p>
+  
+* **Tune data preprocessing:** To tune data preprocessing, we just add an additional step in HyperModel.fit(), where we can access the dataset from the arguments.<p>
+
+* **Specify the tuning objective:** Built-in metric as the objective. Custom metric as the objective.<p>
+  
+* [Tuning the custom training loop: ](https://keras.io/guides/keras_tuner/custom_tuner/)We will subclass the HyperModel class and write a custom training loop by overriding HyperModel.fit().<p>
+  
+* [Automatic Hyperparameter Optimization with keras tuner](https://blog.paperspace.com/hyperparameter-optimization-with-keras-tuner/)<p>
+  
+</details>
+  
+  
+<details close>
+<summary>7. Transfer Learning and Fine Tuning<p></summary>
+  
+  
+  
 </details>
