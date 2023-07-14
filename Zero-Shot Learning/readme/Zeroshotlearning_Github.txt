@@ -1,0 +1,16 @@
+https://github.com/huggingface/transformers/blob/main/src/transformers/pipelines/zero_shot_classification.py
+https://jaketae.github.io/study/zero-shot-classification/
+
+
+
+
+TF version Model Sequence Classification : 
+
+https://github.com/huggingface/transformers/blob/cae78c46d658a8e496a815c2ee49b9b178fb9c9a/src/transformers/models/auto/modeling_tf_auto.py#L561
+
+
+
+
+Pre-processing : 
+
+https://stackoverflow.com/questions/49413005/replace-multiple-substrings-in-a-pandas-series-with-a-value

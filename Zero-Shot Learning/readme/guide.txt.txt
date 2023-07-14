@@ -1,0 +1,57 @@
+Anaconda Env Setup - 
+By : Mehdi (zadeh1980mehdi@gmail.com)
+March 2023 
+
+======================================
+
+
+1- Install Anaconda - Windows/ Linux/Mac 
+
+	https://docs.anaconda.com/anaconda/install/windows/
+	https://www.kdnuggets.com/2020/02/install-python-anaconda-windows.html
+
+
+2- Add path to Windows/Linux/Mac : 
+Note: In Windows: Add two path(s) such as : 
+2-1 Open Anaconda prompt Terminal : 
+>> where python
+	C:\ProgramData\Anaconda3\python.exe
+	C:\Users\zadeh\AppData\Local\Microsoft\WindowsApps\python.exe
+
+Control Panel --> Advanced system settings ----> Environment Variables --->path --->Edit ----> System Variables 
+
+		C:\ProgramData\Anaconda3
+		C:\ProgramData\Anaconda3\Scripts
+
+
+3- Connection Test : Open Anaconda Navigator  ( Takes few seconds/mins)
+
+4- Open Anaconda prompt Terminal 
+
+5- Create a Virtual Env with Conda : 
+	https://towardsdatascience.com/manage-your-python-virtual-environment-with-conda-a0d2934d5195
+	https://docs.conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf
+
+Sample Syntax: 
+-  conda info 
+-  conda env list
+-  conda env remove --name env-name
+
+5-1 Create Virtual env with a YAML file : 
+
+	https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
+
+conda env create -f environment-zeroshotclassification.yml
+
+6- Activate Virtual Env: 
+
+conda activate env-zeroshotclassification
+
+7- Streamlit - Docs 
+	https://docs.streamlit.io/library/get-started/installation
+ 
+ 
+ 
+Better Neat coding : 
+ 
+https://pycodestyle.pycqa.org/en/latest/intro.html
