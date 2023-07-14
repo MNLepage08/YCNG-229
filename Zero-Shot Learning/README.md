@@ -8,9 +8,9 @@
 Contributors
 --------------
 
-    __project_manager __   = "sampleprojectmanager@mcgill.ca"
-    __data_engineer   __   = "sampledataengineer@mcgill.ca"
-    __data_scientist  __   = "sampledatadcientist@mcgill.ca"
+    __project_manager __   = "sampleProjectManager@mcgill.ca"
+    __data_engineer   __   = "sampleDataEngineer@mcgill.ca"
+    __data_scientist  __   = "sampleDataScientist@mcgill.ca"
 
   
 Releases
