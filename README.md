@@ -179,3 +179,23 @@
   
   
 </details>
+
+
+<details close>
+<summary>11. Zero-Shot Text Classification with Hugging Face <p></summary>
+
+* Zero-shot Learning is a setup in which a model can learn to recognize things that it hasn’t explicitly seen before in training. This is exactly how zero shot classification works. We have a pre trained model (eg. a language model) which serves as the knowledge base since it has been trained on a huge amount of text from many websites. For any type of task, we give relevant class descriptors and let the model infer what the task actually is.
+  
+* There are different zero-shot learning approaches, but a commonality is that auxiliary information such as textual descriptions are used or encoded during the training process instead of explicit labels. Needless to say, the more labelled data we provide, the better the results would be. And sometimes, zero-shot learning doesn’t work very well. If we have a few samples of labelled data but not enough for fine tuning, few shots is the way to go. Zero shot and few shot learning methods are reducing the reliance on annotated data. The GPT-2 and GPT-3,GPT-4 models have shown remarkable results to prove this.
+  
+* [Understanding Zero-Shot Learning](https://towardsdatascience.com/understanding-zero-shot-learning-making-ml-more-human-4653ac35ccab)
+  
+* [Zero and Few Shot Learning](https://towardsdatascience.com/zero-and-few-shot-learning-c08e145dc4ed)
+
+* [Understanding Contrastive Learning](https://towardsdatascience.com/understanding-contrastive-learning-d5b19fd96607)
+  
+* [Pre-trained model](https://huggingface.co/MoritzLaurer/DeBERTa-v3-large-mnli-fever-anli-ling-wanli)
+  
+* [Zero-Shot Learning in Modern NLP](https://joeddav.github.io/blog/2020/05/29/ZSL.html)
+  
+</details>
