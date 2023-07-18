@@ -198,6 +198,13 @@
   When we unfreeze a model that contains BatchNormalization layers to do fine-tuning, we should keep the BatchNormalization layers in inference mode by passing training=False when calling the base model. 
   Otherwise, the updates applied to the non-trainable weights will destroy what the model has learned.
 
+* **Based Recommendation:** System which suggest you some prodicts based on your preference. 3 main categories:
+  1. content base: we build a profile of either users or items or mix of them.
+  2. collaborative filtering: take a user engaement with the system. Ex: video that user click on.
+  3. hybrid (mix of content and collaborative).
+
+* **Ex:** Base of a image, show me the 10 most similar sandals. Use transfer learning (Xception) and pass the entire dataset into this network and extract the the embedded visual features. Preprocessing for scale. Use TSNE algorithm for visualize dimensional data. 3 ways to generate recommendataions: cosine similarity, nearest neighbors (don't need pairwise comparaison - more fast), or use approximate nearest neighbors - recommendation system at scale - pretty fast ([annoy](https://github.com/spotify/annoy), [NMSLIB](https://github.com/nmslib/nmslib), [faiss](https://github.com/facebookresearch/faiss))
+
 
   
   
