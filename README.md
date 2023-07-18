@@ -175,7 +175,30 @@
   
 <details close>
 <summary>7. Transfer Learning and Fine Tuning<p></summary>
+
+* [Transfer Learning & Fine Tuning: ](https://keras.io/guides/transfer_learning/)Transfer learning consists of taking features learned on one problem, and leveraging them on a new, similar problem. It is usually done for tasks where our dataset has too little data to train a full-scale model from scratch.<p>
+  1. Take layers from a previously trained model.
+  2. Freeze them, so as to avoid destroying any of the information they contain during future training rounds.
+  3. Add some new, trainable layers on top of the frozen layers. They will learn to turn the old features into predictions on a new dataset.
+  4. Train the new layers on our dataset.
+
+* One last, optional step, is fine-tuning, which consists of unfreezing the entire or part of the model we obtained above, and re-training it on the new data with a very low learning rate. This can potentially achieve meaningful improvements, by incrementally adapting the pretrained features to the new data. It can also potentially lead to quick overfitting.
+
+* Note that an alternative, more lightweight workflow could also be:<p>
+  1. Instantiate a base model and load pre-trained weights into it.
+  2. Run the new dataset through it and record the output of one (or several) layers from the base model. This is called feature extraction.
+  3. Use that output as input data for a new, smaller model.
+ 
+* **Fine-tuning:** Once our model has converged on the new data, we can try to unfreeze all or part of the base model and retrain the whole model end-to-end with a very low learning rate.<p>
+
+  It is critical to only do this step after the model with frozen layers has been trained to convergence. If we mix randomly-initialized trainable layers with trainable layers that hold pre-trained features, the randomly-initialized layers will cause very large gradient updates during training, which will destroy our pre-trained features.<p>
   
+  It is also critical to use a very low learning rate at this stage, because we are training a much larger model than in the first round of training, on a dataset that is typically very small. As a result, we are at risk of overfitting very quickly if we apply large weight updates.<p>
+  
+  When we unfreeze a model that contains BatchNormalization layers to do fine-tuning, we should keep the BatchNormalization layers in inference mode by passing training=False when calling the base model. 
+  Otherwise, the updates applied to the non-trainable weights will destroy what the model has learned.
+
+
   
   
 </details>
