@@ -225,7 +225,9 @@
   2. **The Positive** is another example of the class C.
   3. **The Negative** is a data-point of some class which is not C.
 
-  At train time, each of our triplet components is fed to its own CNN branch to be embedded. These embeddings are passed to the Triplet Loss Function, which is defined as: L = max(0, D(A,P) — D(A,N) + margin) Where D(A,P) is the embedding distance between the Anchor and the Positive, and D(A,N) is the embedding distance between the Anchor and the Negative. We also define some margin - an often used initial value for this is 0.2
+  At train time, each of our triplet components is fed to its own CNN branch to be embedded. These embeddings are passed to the Triplet Loss Function, which is defined as: L = max(0, D(A,P) — D(A,N) + margin) Where D(A,P) is the embedding distance between the Anchor and the Positive, and D(A,N) is the embedding distance between the Anchor and the Negative. We also define some margin - an often used initial value for this is 0.2<p>
+  [Image similarity estimation using a Siamese Network with a triplet loss](https://keras.io/examples/vision/siamese_network/#image-similarity-estimation-using-a-siamese-network-with-a-triplet-loss)<p>
+  [Create a Siamese Network with Triplet Loss in Keras](https://zhangruochi.com/Create-a-Siamese-Network-with-Triplet-Loss-in-Keras/2020/08/11/)<p>
 
 </details>
 
