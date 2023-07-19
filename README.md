@@ -25,9 +25,9 @@
 | 5 | Custom Fit Function, DCGAN |
 | 6 | Custom Training Loop, Tuning the custom training loop |
 | 7 | Transfer Learning and Fine Tuning |
-| 8 | Multi-Label Text Classification with Hugging Face |
-| 9 | Semantic Similarity Classification with BERT |
-| 10 | Siamese Neural Network |
+| 8 | Siamese Neural Network |
+| 9 | Multi-Label Text Classification with Hugging Face |
+| 10 | Semantic Similarity Classification with BERT |
 | 11 | Zero-Shot Text Classification with Hugging Face |
 | 12 | Projects Presentation |
 
@@ -205,9 +205,28 @@
 
 * **Ex:** Base of a image, show me the 10 most similar sandals. Use transfer learning (Xception) and pass the entire dataset into this network and extract the the embedded visual features. Preprocessing for scale. Use TSNE algorithm for visualize dimensional data. 3 ways to generate recommendataions: cosine similarity, nearest neighbors (don't need pairwise comparaison - more fast), or use approximate nearest neighbors - recommendation system at scale - pretty fast ([annoy](https://github.com/spotify/annoy), [NMSLIB](https://github.com/nmslib/nmslib), [faiss](https://github.com/facebookresearch/faiss))
 
+</details>
+  
+  
+<details close>
+<summary>8. Siamese Neural Network<p></summary>
 
+* Siamese Neural Network is any model architecture which contains at least two parallel, identical, Convolutional Neural Networks. Classification: Lots of labelled data, limited classes. One-Shot Learning: one or a few samples. Example of problem: face recognition, classification, many different images of club members, what if a new member joins or an existing member leaves? Could by use also for NLP task (ex: similar question)<p>
+  [How To Train Your Siamese Neural Network](https://towardsdatascience.com/how-to-train-your-siamese-neural-network-4c6da3259463)<p>
+  [Metric Learning Using Siamese and Triplet Convolutional Neural Networks](https://levelup.gitconnected.com/metric-learning-using-siamese-and-triplet-convolutional-neural-networks-ed5b01d83be3)<p>
+  [SigNet: Convolutional Siamese Network for Writer Independent Offline Signature Verification](https://arxiv.org/pdf/1707.02131.pdf)<p>
+  [FaceNet: A Unified Embedding for Face Recognition and Clustering](https://arxiv.org/pdf/1503.03832.pdf)<p>
+  [Image similarity estimation using a Siamese Network with a contrastive loss](https://keras.io/examples/vision/siamese_contrastive/)<p>
+
+* <img width="600" align="right" alt="Capture d’écran, le 2023-07-19 à 11 27 04" src="https://github.com/MNLepage08/MNLepage08/assets/113123425/e2088b17-f6a9-4c87-a61b-504748e49625">This parallel CNN architecture allows for the model to learn similarity, which can be used instead of a direct classification. Each parallel CNN which forms a part of the SNN is designed to produce an embedding, or a reduced dimensional representation, of the input. These embeddings can then be used to optimise a Ranking Loss, and at test time used to generate a similarity score. More recent versions of SNNs will most likely utilise triple or even quadruple branching, containing three or four parallel CNNs respectively. If you have 2 subnetworks: Binary cross-entropy loss -> Pairs of inputs (images, questions, reviews, sentences): similar(1) vs. non-similar(0). Constrastive loss: pairs of inputs - distance between subnetworks embeddings.
   
-  
+* <img width="600" align="right" alt="Capture d’écran, le 2023-07-19 à 12 08 05" src="https://github.com/MNLepage08/MNLepage08/assets/113123425/511597e1-ba56-4d1b-9a1b-8f3f3012db21">**Triplet Ranking Loss:** One of the more common types of Ranking Loss used for SNNs is Triplet Ranking Loss. Triplet Ranking Loss requires, as the name suggests, three inputs which we call a triplet. Each data-point in the triplet has its own job.
+  1. **The Anchor** is data of some class C which defines which class the triplet will train the model on.
+  2. **The Positive** is another example of the class C.
+  3. **The Negative** is a data-point of some class which is not C.
+
+  At train time, each of our triplet components is fed to its own CNN branch to be embedded. These embeddings are passed to the Triplet Loss Function, which is defined as: L = max(0, D(A,P) — D(A,N) + margin) Where D(A,P) is the embedding distance between the Anchor and the Positive, and D(A,N) is the embedding distance between the Anchor and the Negative. We also define some margin - an often used initial value for this is 0.2
+
 </details>
 
 
