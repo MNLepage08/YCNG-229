@@ -65,6 +65,10 @@ Create an environment from an [environment-zeroshotclassification.yaml](https://
   ```
   $ conda env list
   ```
+  Deploy the model lacally
+  ```
+  $ python models/model_download_and_cache.py  
+  ```
 
 How to call API / End point 
 --------------
