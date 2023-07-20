@@ -53,7 +53,18 @@ Introduction
 
 How to config
 --------------
-
+Create an environment from an [environment-zeroshotclassification.yaml](https://github.com/MNLepage08/YCNG-229/blob/main/Zero-Shot%20Learning/readme/environment-zeroshotclassification.yaml) file
+  ```
+  $ conda env create -f readme/environment-zeroshotclassification.yaml
+  ```
+  Activate the new environment:
+  ```
+  $ conda activate zeroshot 
+  ```
+  Verify that the new environment was installed correctly:
+  ```
+  $ conda env list
+  ```
 
 How to call API / End point 
 --------------
