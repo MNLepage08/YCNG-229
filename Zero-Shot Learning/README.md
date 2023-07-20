@@ -72,7 +72,9 @@ Create an environment from an [environment-zeroshotclassification.yaml](https://
 
 How to call API / End point 
 --------------
-
+  ```
+  $ streamlit run myApp_singleEntry.py
+  ```
 
 Tools/Dependencies
 --------------
