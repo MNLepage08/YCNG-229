@@ -65,7 +65,7 @@ Create an environment from an [environment-zeroshotclassification.yaml](https://
   ```
   $ conda env list
   ```
-  Deploy the model lacally
+  Deploy the model locally
   ```
   $ python models/model_download_and_cache.py  
   ```
